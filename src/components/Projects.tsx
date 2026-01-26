@@ -70,7 +70,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                           key={idx}
                           src={img}
                           alt={`${featuredProject.title} slide ${idx}`}
-                          className='w-full h-full object-cover shrink-0'
+                          className='w-full h-full object-cover object-top shrink-0'
                         />
                       ))}
                     </div>
@@ -178,7 +178,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     <img
                       src={project.images[0]}
                       alt={project.title}
-                      className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
+                      className='w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500'
                     />
                   ) : (
                     <div className='w-full h-full flex items-center justify-center'>
