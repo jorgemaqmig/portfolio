@@ -11,15 +11,18 @@ import { BeamsBackground } from './components/BeamsBackground';
 const exampleProjects = [
   {
     id: 1,
-    title: "EcoTrack - Sostenibilidad Inteligente",
-    description: "Una plataforma integral para el seguimiento de la huella de carbono personal y empresarial. Incluye visualización de datos en tiempo real, recomendaciones impulsadas por IA y un sistema de gamificación para fomentar prácticas sostenibles.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js", "Firebase"],
-    link: "https://example.com",
-    github: "https://github.com/example",
+    title: "LearningCode",
+    description: "Plataforma integral de aprendizaje de programación que combina cursos teóricos con retos prácticos. Diseñada para guiar a los usuarios desde los conceptos básicos hasta niveles avanzados con una experiencia interactiva y gamificada.",
+    technologies: ["Angular", "Node.js", "TypeScript", "Express", "Vercel"],
+    link: "https://frontend-learningcode.vercel.app/",
+    github: "https://github.com/jorgemaqmig/learningcode",
     images: [
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=1000"
+      "/projects/inicio.png",
+      "/projects/cursos.png",
+      "/projects/cursos2.png",
+      "/projects/cursos3.png",
+      "/projects/retos.png",
+      "/projects/retos2.png",
     ]
   },
   {
