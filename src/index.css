@@ -1,0 +1,192 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-bropella: "Bropella", sans-serif;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* User requested colors:
+     Background: 132149
+     Details: d4efb5
+     Titles: d4efb5 (Mint)
+     Text: FFFFFF
+     Descriptions: FFFFFF
+  */
+  --background: #132149;
+  --foreground: #FFFFFF;
+
+  --card: #132149;
+  --card-foreground: #FFFFFF;
+
+  --popover: #132149;
+  --popover-foreground: #FFFFFF;
+
+  --primary: #ccf79b;
+  /* Titles -> Mint */
+  --primary-foreground: #132149;
+
+  --secondary: #ccf79b;
+  /* Details */
+  --secondary-foreground: #132149;
+
+  --muted: #1e336b;
+  --muted-foreground: #FFFFFF;
+  /* Descriptions -> White */
+
+  --accent: #d4efb5;
+  --accent-foreground: #132149;
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: #8d8fc2;
+  --input: #1e336b;
+  --ring: #ccf79b;
+
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --sidebar: #132149;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #8d8fc2;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1e336b;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #8d8fc2;
+  --sidebar-ring: #ccf79b;
+}
+
+/* 
+.dark {
+  ... removed to enforce the user's specific design preference across modes ...
+} 
+*/
+
+@font-face {
+  font-family: 'Bropella';
+  src: url('./assets/fonts/Bropella.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1,
+  h2,
+  .font-bropella {
+    font-family: 'Bropella', sans-serif !important;
+  }
+
+  h3,
+  h4,
+  .font-space {
+    font-family: 'Space Grotesk', sans-serif !important;
+  }
+}
+
+
+.grain-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url('http://assets.iceablethemes.com/img/noise-transparent.png') repeat 0 0;
+  background-repeat: repeat;
+  opacity: .05;
+  visibility: visible;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.stars-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 10%, #ffffff 100%, transparent),
+    radial-gradient(1px 1px at 20% 40%, #ffffff 100%, transparent),
+    radial-gradient(1.5px 1.5px at 30% 80%, var(--primary) 100%, transparent),
+    radial-gradient(1px 1px at 40% 20%, #ffffff 100%, transparent),
+    radial-gradient(1.5px 1.5px at 50% 60%, var(--primary) 100%, transparent),
+    radial-gradient(1px 1px at 60% 30%, #ffffff 100%, transparent),
+    radial-gradient(1px 1px at 70% 90%, #ffffff 100%, transparent),
+    radial-gradient(2px 2px at 80% 50%, var(--primary) 100%, transparent),
+    radial-gradient(1px 1px at 90% 10%, #ffffff 100%, transparent);
+  background-size: 300px 300px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fade-bottom-mask {
+  mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+}
+
+.galaxy-container {
+
+  width: 100%;
+
+  height: 100%;
+
+  position: relative;
+
+}
