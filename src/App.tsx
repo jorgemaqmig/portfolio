@@ -47,6 +47,17 @@ const exampleProjects = [
       "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000"
     ]
   },
+  {
+    id: 4,
+    title: "VistaMobile App",
+    description: "Aplicación móvil de realidad aumentada para diseño de interiores. Permite a los usuarios visualizar muebles y decoraciones en sus espacios reales antes de comprar.",
+    technologies: ["React Native", "Three.js", "Firebase", "Redux"],
+    link: "https://example.com",
+    github: "https://github.com/example",
+    images: [
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000"
+    ]
+  },
 ];
 
 function App() {
@@ -77,8 +88,8 @@ function App() {
 
   return (
     <>
-      <BeamsBackground className="bg-background">
-        <div className='w-full min-h-screen relative overflow-x-hidden selection:bg-secondary/30'>
+      <BeamsBackground className="bg-portfolio-gradient overflow-hidden">
+        <div className='w-full min-h-screen relative overflow-x-hidden selection:bg-secondary/30 transform-gpu translate-z-0'>
           {/* Grain Overlay */}
           <div className='grain-overlay' />
 
@@ -185,7 +196,7 @@ function App() {
           <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-8 opacity-50 relative z-10" />
 
           {/* Sección Projects */}
-          <section id="projects" className='relative scroll-mt-24 py-10 overflow-hidden'>
+          <section id="projects" className='relative scroll-mt-24 py-10 overflow-hidden contain-paint'>
             <Projects projects={exampleProjects} />
           </section>
 
@@ -193,7 +204,7 @@ function App() {
           <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-8 opacity-50 relative z-10" />
 
           {/* Sección About */}
-          <section id="about" className='relative scroll-mt-24 py-20 overflow-hidden'>
+          <section id="about" className='relative scroll-mt-24 py-20 overflow-hidden contain-paint'>
             <About
               name="Jorge Maqueda"
               title="Desarrollador Full Stack"
@@ -205,7 +216,7 @@ function App() {
           <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-8 opacity-50 relative z-10" />
 
           {/* Sección Contact */}
-          <section id="contact" className='relative scroll-mt-24 py-20 overflow-hidden'>
+          <section id="contact" className='relative scroll-mt-24 py-20 overflow-hidden contain-paint'>
             <Contact
               email="jorgemaqmig@gmail.com"
               linkedin="https://www.linkedin.com/in/jorge-maqueda-a14314399/"

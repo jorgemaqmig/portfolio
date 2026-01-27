@@ -139,7 +139,7 @@ export function BeamsBackground({
             ctx.restore();
         }
 
-        ctx.filter = "blur(35px)";
+        // ctx.filter = "blur(35px)"; // Removed for performance, using CSS filter instead
 
         function animate() {
             if (!canvas || !ctx) return;

@@ -9,6 +9,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
+  --color-background-dark: var(--background-dark);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -53,6 +54,7 @@
      Descriptions: FFFFFF
   */
   --background: #132149;
+  --background-dark: #0a1229;
   --foreground: #FFFFFF;
 
   --card: #132149;
@@ -138,23 +140,36 @@
   .font-space {
     font-family: 'Space Grotesk', sans-serif !important;
   }
+
+  .bg-portfolio-gradient {
+    background: linear-gradient(to bottom,
+        var(--background) 0%,
+        var(--background) 85vh,
+        var(--background-dark) 115vh,
+        var(--background-dark) 100%) !important;
+    will-change: background;
+  }
+
+  .contain-paint {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
 }
 
 
 .grain-overlay {
   position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: transparent url('http://assets.iceablethemes.com/img/noise-transparent.png') repeat 0 0;
-  background-repeat: repeat;
   opacity: .05;
   visibility: visible;
   pointer-events: none;
   z-index: 100;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .stars-pattern {
