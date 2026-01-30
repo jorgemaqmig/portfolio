@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -42,6 +43,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --font-bropella: "Bropella", sans-serif;
+  --font-syne: "Syne", sans-serif;
 }
 
 :root {
@@ -116,7 +118,8 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--border);
+    outline-color: color-mix(in srgb, var(--ring), transparent 50%);
   }
 
   html {
@@ -125,7 +128,8 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: 'Inter', sans-serif;
   }
 
@@ -137,8 +141,9 @@
 
   h3,
   h4,
-  .font-space {
-    font-family: 'Space Grotesk', sans-serif !important;
+  .font-syne {
+    font-family: 'Syne', sans-serif !important;
+    font-weight: 800;
   }
 
   .bg-portfolio-gradient {
