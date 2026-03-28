@@ -27,35 +27,46 @@ const exampleProjects = [
   },
   {
     id: 2,
-    title: "NeuroConnect API",
-    description: "API robusta para la gestión de datos neuronales en entornos de investigación. Implementa protocolos de seguridad avanzados y procesamiento de señales en tiempo real.",
-    technologies: ["Node.js", "Express", "MongoDB", "Redis", "Docker"],
-    link: "https://example.com",
-    github: "https://github.com/example",
+    title: "OutOfRange",
+    description: "Videojuego 2D cooperativo centrado en la eliminación de enemigos sin salir de una zona conjunta.",
+    technologies: ["Unity", "C#", "2D Physics", "Co-op Mechanics"],
+    link: "https://vgxbri.itch.io/out-of-range",
+    github: "https://github.com/vGxbri/OutOfRange",
     images: [
-      "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=1000"
+      "/projects/outofrange.png",
+      "/projects/outofrange1.png",
+      "/projects/outofrange2.png",
+      "/projects/outofrange3.png",
+      "/projects/outofrange4.png",
     ]
   },
   {
     id: 3,
-    title: "VistaMobile App",
-    description: "Aplicación móvil de realidad aumentada para diseño de interiores. Permite a los usuarios visualizar muebles y decoraciones en sus espacios reales antes de comprar.",
-    technologies: ["React Native", "Three.js", "Firebase", "Redux"],
-    link: "https://example.com",
-    github: "https://github.com/example",
+    title: "PokeZona",
+    description: "Aplicación móvil centrada en el universo Pokémon, permitiendo la consulta de datos y gestión de información sobre los mismos.",
+    technologies: ["Kotlin", "Android SDK", "Retrofit", "Jetpack Compose"],
+    link: "https://github.com/vGxbri/PokeZona",
+    github: "https://github.com/vGxbri/PokeZona",
     images: [
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000"
+      "/projects/pokezona.png",
+      "/projects/pokezona1.png",
+      "/projects/pokezona2.png",
+      "/projects/pokezona3.png",
+      "/projects/pokezona4.png",
     ]
   },
   {
     id: 4,
-    title: "VistaMobile App",
-    description: "Aplicación móvil de realidad aumentada para diseño de interiores. Permite a los usuarios visualizar muebles y decoraciones en sus espacios reales antes de comprar.",
-    technologies: ["React Native", "Three.js", "Firebase", "Redux"],
-    link: "https://example.com",
-    github: "https://github.com/example",
+    title: "Pixelhouse-Tycoon",
+    description: "Videojuego 2D de gestión y construcción inspirado en el universo Minecraft. Los jugadores pueden construir libremente y generar monedas mediante sistemas de generadores automáticos.",
+    technologies: ["Unity", "C#", "Game Design", "Economy Systems"],
+    link: "https://github.com/vGxbri/Pixelhouse-Tycoon",
+    github: "https://github.com/vGxbri/Pixelhouse-Tycoon",
     images: [
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000"
+      "/projects/pixelhouse.png",
+      "/projects/pixelhouse1.png",
+      "/projects/pixelhouse2.png",
+      "/projects/pixelhouse3.png",
     ]
   },
 ];

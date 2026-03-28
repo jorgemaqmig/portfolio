@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Code, Calendar, CheckCircle2 } from 'lucide-react';
+import { GraduationCap, Code, Calendar, CheckCircle2, Briefcase } from 'lucide-react';
 
 interface AboutProps {
   name?: string;
@@ -79,6 +79,27 @@ const About: React.FC<AboutProps> = ({
       title: "Doble Grado Superior",
       period: "2023 - 2026",
       description: "Desarrollo de Aplicaciones Web (DAW) y Desarrollo de Aplicaciones Multiplataforma (DAM)",
+      highlight: true
+    }
+  ];
+
+  const experience = [
+    {
+      id: 1,
+      company: "VASS",
+      logo: "/projects/vass.png",
+      role: "Desarrollador Salesforce",
+      period: "Marzo 2026 - Actualidad",
+      description: "Desarrollo y mantenimiento de aplicaciones en Salesforce.",
+      highlight: true
+    },
+    {
+      id: 2,
+      company: "Domain Logic",
+      logo: "/projects/domainlogic.jpeg",
+      role: "Desarrollador Full Stack",
+      period: "Marzo 2025 - Junio 2026",
+      description: "Desarrollo de aplicaciones web utilizando Angular y Spring Boot.",
       highlight: true
     }
   ];
@@ -175,80 +196,158 @@ const About: React.FC<AboutProps> = ({
           </div>
         </div>
 
-        {/* Línea del Tiempo de Estudios */}
+        {/* Experiencia Profesional */}
+        <div className="mb-24">
+          <h3 className="text-3xl font-bold text-primary mb-16 flex items-center gap-3">
+            <Briefcase className="w-8 h-8 text-primary" />
+            Experiencia Profesional
+          </h3>
+
+          <div className="relative">
+            {/* Línea vertical con gradiente */}
+            <div className="absolute left-[32px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-secondary/50 to-transparent transform -translate-x-1/2"></div>
+
+            <div className="space-y-16">
+              {experience.map((item, index) => (
+                <div key={item.id} className="relative pl-24 group/exp">
+                  {/* Punto en la línea del tiempo */}
+                  <div className="absolute left-[32px] top-10 transform -translate-x-1/2 z-10">
+                    <div className={`w-4 h-4 rounded-full ${item.highlight
+                      ? 'bg-secondary shadow-[0_0_12px_rgba(168,85,247,0.5)]'
+                      : 'bg-muted-foreground/30'
+                      }`} />
+                  </div>
+
+                  {/* Conector horizontal */}
+                  <div className="absolute left-[40px] top-[44px] w-12 h-px bg-secondary/30" />
+
+                  {/* Card de experiencia */}
+                  <div className="relative bg-card/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/[0.06] hover:border-secondary/30 transition-all duration-500 overflow-hidden group-hover/exp:shadow-lg group-hover/exp:shadow-secondary/5">
+
+                    {/* Glow decorativo */}
+                    <div className="absolute -top-20 -right-20 w-48 h-48 bg-secondary/[0.04] blur-3xl rounded-full pointer-events-none" />
+
+                    <div className="relative z-10">
+                      {/* Header: Logo + Info + Fecha */}
+                      <div className="flex flex-col md:flex-row md:items-start gap-6 mb-8">
+
+                        {/* Logo de la empresa */}
+                        <div className="w-20 h-20 rounded-2xl bg-white/[0.07] border border-white/10 flex items-center justify-center shrink-0 overflow-hidden group-hover/exp:border-secondary/20 transition-colors duration-500">
+                          {item.logo ? (
+                            <img src={item.logo} alt={item.company} className="w-full h-full object-cover rounded-2xl" />
+                          ) : (
+                            <Briefcase className="w-9 h-9 text-muted-foreground/40" />
+                          )}
+                        </div>
+
+                        {/* Puesto y empresa */}
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-2xl md:text-3xl font-bold text-foreground mb-1 leading-tight">
+                            {item.role}
+                          </h4>
+                          <p className="text-lg text-secondary font-medium mb-3">
+                            {item.company}
+                          </p>
+                          <div className="w-16 h-0.5 bg-gradient-to-r from-secondary/50 to-transparent rounded-full" />
+                        </div>
+
+                        {/* Badge de fecha */}
+                        <div className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06] backdrop-blur-sm self-start shrink-0">
+                          <Calendar className="w-4 h-4 text-secondary/70" />
+                          <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
+                            {item.period}
+                          </span>
+                          {index === 0 && (
+                            <span className="relative flex h-2.5 w-2.5 ml-1">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Descripción */}
+                      <p className="text-muted-foreground/80 leading-relaxed text-base md:text-lg max-w-3xl">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Formación Académica */}
         <div className="mb-16">
-          <h3 className="text-3xl font-bold text-primary mb-12 flex items-center gap-3">
+          <h3 className="text-3xl font-bold text-primary mb-16 flex items-center gap-3">
             <GraduationCap className="w-8 h-8 text-primary" />
             Formación Académica
           </h3>
 
           <div className="relative">
-            {/* Línea vertical - centrada perfectamente */}
-            <div className="absolute left-[24px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-primary to-primary/50 transform -translate-x-1/2"></div>
+            {/* Línea vertical con gradiente */}
+            <div className="absolute left-[32px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent transform -translate-x-1/2"></div>
 
-            <div className="space-y-12">
+            <div className="space-y-16">
               {education.map((item) => (
-                <div key={item.id} className="relative pl-20">
-                  {/* Punto en la línea - centrado verticalmente en la mitad de la card */}
-                  <div className={`absolute left-[24px] top-1/2 w-6 h-6 rounded-full border-4 border-background z-10 transform -translate-x-1/2 -translate-y-1/2 ${item.highlight
-                    ? 'bg-gradient-to-br from-primary to-primary ring-4 ring-primary/40 shadow-lg shadow-primary/50'
-                    : 'bg-muted ring-2 ring-muted/30'
-                    }`}>
+                <div key={item.id} className="relative pl-24 group/edu">
+                  {/* Punto en la línea del tiempo */}
+                  <div className="absolute left-[32px] top-10 transform -translate-x-1/2 z-10">
+                    <div className={`w-4 h-4 rounded-full ${item.highlight
+                      ? 'bg-primary shadow-[0_0_12px_rgba(59,130,246,0.5)]'
+                      : 'bg-muted-foreground/30'
+                      }`} />
                   </div>
 
-                  {/* Contenido */}
-                  <div className={`relative bg-card rounded-2xl p-6 md:p-8 border ${item.highlight
-                    ? 'border-primary/60 shadow-xl shadow-primary/20'
-                    : 'border-border/50 shadow-lg'
-                    }`}>
+                  {/* Conector horizontal */}
+                  <div className="absolute left-[40px] top-[44px] w-12 h-px bg-primary/30" />
+
+                  {/* Card de formación */}
+                  <div className="relative bg-card/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/[0.06] hover:border-primary/30 transition-all duration-500 overflow-hidden group-hover/edu:shadow-lg group-hover/edu:shadow-primary/5">
+
+                    {/* Glow decorativo */}
+                    <div className="absolute -top-20 -right-20 w-48 h-48 bg-primary/[0.04] blur-3xl rounded-full pointer-events-none" />
+
                     <div className="relative z-10">
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-3">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <div className={`p-2 rounded-lg ${item.highlight
-                              ? 'bg-primary/20'
-                              : 'bg-muted/30'
-                              }`}>
-                              <GraduationCap className={`w-5 h-5 ${item.highlight ? 'text-primary' : 'text-muted-foreground'
-                                }`} />
-                            </div>
-                            <h4 className={`text-2xl md:text-3xl font-bold ${item.highlight ? 'text-primary' : 'text-foreground'
-                              }`}>
-                              {item.title}
-                            </h4>
-                          </div>
+                      {/* Header: Icono + Info + Fecha */}
+                      <div className="flex flex-col md:flex-row md:items-start gap-6 mb-8">
+
+                        {/* Icono de formación */}
+                        <div className="w-20 h-20 rounded-2xl bg-white/[0.07] border border-white/10 flex items-center justify-center shrink-0 group-hover/edu:border-primary/20 transition-colors duration-500">
+                          <GraduationCap className={`w-9 h-9 ${item.highlight ? 'text-primary' : 'text-muted-foreground/40'}`} />
                         </div>
-                        <div className={`flex items-center gap-2 px-4 py-2 rounded-lg ${item.highlight
-                          ? 'bg-primary/10 border border-primary/30'
-                          : 'bg-muted/50 border border-muted/30'
-                          }`}>
-                          <Calendar className={`w-4 h-4 ${item.highlight ? 'text-purple-400' : 'text-gray-400'
-                            }`} />
-                          <span className={`text-sm font-medium ${item.highlight ? 'text-purple-300' : 'text-gray-300'
-                            }`}>
+
+                        {/* Título y descripción */}
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-2xl md:text-3xl font-bold text-foreground mb-1 leading-tight">
+                            {item.title}
+                          </h4>
+                          <p className="text-lg text-primary/80 font-medium mb-3">
+                            {item.description}
+                          </p>
+                          <div className="w-16 h-0.5 bg-gradient-to-r from-primary/50 to-transparent rounded-full" />
+                        </div>
+
+                        {/* Badge de fecha */}
+                        <div className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06] backdrop-blur-sm self-start shrink-0">
+                          <Calendar className="w-4 h-4 text-primary/70" />
+                          <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
                             {item.period}
                           </span>
                         </div>
                       </div>
 
-                      <p className="text-gray-300 leading-relaxed text-base md:text-lg mb-4">
-                        {item.description}
-                      </p>
-
+                      {/* Badge de doble titulación */}
                       {item.highlight && (
-                        <div className="mt-6 pt-4 border-t border-primary/20">
-                          <div className="flex items-center gap-2 text-primary font-semibold">
-                            <CheckCircle2 className="w-5 h-5" />
-                            <span>Doble titulación en Desarrollo de Aplicaciones Web y Multiplataforma</span>
-                          </div>
+                        <div className="flex items-center gap-2.5 px-5 py-3 rounded-xl bg-primary/[0.06] border border-primary/10 w-fit">
+                          <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                          <span className="text-sm font-semibold text-primary">
+                            Doble titulación en Desarrollo de Aplicaciones Web y Multiplataforma
+                          </span>
                         </div>
                       )}
                     </div>
-
-                    {/* Decoración de esquina */}
-                    {item.highlight && (
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/20 to-transparent rounded-bl-full opacity-50"></div>
-                    )}
                   </div>
                 </div>
               ))}
