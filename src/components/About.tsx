@@ -144,55 +144,57 @@ const About: React.FC<AboutProps> = ({
   ];
 
   return (
-    <div className="w-full min-h-screen py-20 px-8 md:px-16 lg:px-24">
-      <div className="max-w-6xl mx-auto">
+    <div className="w-full min-h-screen py-24 px-4 md:px-16 lg:px-24">
+      <div className="max-w-[1400px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-primary mb-4">
+        <div className="text-center mb-28">
+          <span className='text-xs font-semibold tracking-[0.3em] uppercase text-primary/50 mb-6 block'>
+            Conóceme
+          </span>
+          <h2 className="text-5xl md:text-7xl font-bold text-primary mb-8 tracking-tight">
             Sobre Mí
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {description}
-          </p>
+          <div className='w-20 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent mx-auto rounded-full' />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
           {/* Información Personal */}
-          <div className="bg-card rounded-2xl p-8 border border-border/20 hover:border-secondary/50 transition-all duration-300">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 rounded-lg bg-secondary/20">
-                <Code className="w-8 h-8 text-primary" />
+          <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/[0.06] hover:border-primary/20 transition-all duration-500 relative overflow-hidden group">
+            <div className="absolute -top-20 -right-20 w-48 h-48 bg-primary/[0.04] blur-3xl rounded-full pointer-events-none" />
+            <div className="relative z-10">
+              <div className="flex items-center gap-5 mb-8">
+                <div className="w-16 h-16 rounded-2xl bg-white/[0.07] border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/20 transition-colors duration-500">
+                  <Code className="w-8 h-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-foreground">{name}</h3>
+                  <p className="text-primary/80 font-medium">{title}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-foreground">{name}</h3>
-                <p className="text-primary">{title}</p>
-              </div>
+              <p className="text-muted-foreground/80 leading-relaxed text-base md:text-lg">
+                Desarrollador Full Stack con formación en desarrollo web y multiplataforma.
+                Especializado en crear aplicaciones modernas, escalables y de alto rendimiento
+                utilizando las últimas tecnologías y mejores prácticas del sector.
+              </p>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
-              Desarrollador Full Stack con formación en desarrollo web y multiplataforma.
-              Especializado en crear aplicaciones modernas, escalables y de alto rendimiento
-              utilizando las últimas tecnologías y mejores prácticas del sector.
-            </p>
           </div>
 
           {/* Estadísticas rápidas */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-card rounded-xl p-6 border border-border/20 hover:border-secondary/50 transition-all duration-300 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">2</div>
-              <div className="text-muted-foreground text-sm">Grados Superiores</div>
-            </div>
-            <div className="bg-card rounded-xl p-6 border border-border/20 hover:border-secondary/50 transition-all duration-300 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">30+</div>
-              <div className="text-muted-foreground text-sm">Tecnologías</div>
-            </div>
-            <div className="bg-card rounded-xl p-6 border border-border/20 hover:border-secondary/50 transition-all duration-300 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">Full</div>
-              <div className="text-muted-foreground text-sm">Stack</div>
-            </div>
-            <div className="bg-card rounded-xl p-6 border border-border/20 hover:border-secondary/50 transition-all duration-300 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">Web</div>
-              <div className="text-muted-foreground text-sm">Multiplataforma</div>
-            </div>
+            {[
+              { value: '2', label: 'Grados Superiores' },
+              { value: '30+', label: 'Tecnologías' },
+              { value: 'Full', label: 'Stack' },
+              { value: 'Web', label: 'Multiplataforma' },
+            ].map((stat, i) => (
+              <div key={i} className="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-white/[0.06] hover:border-primary/20 transition-all duration-500 text-center relative overflow-hidden group">
+                <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <div className="text-4xl font-bold text-primary mb-2">{stat.value}</div>
+                  <div className="text-muted-foreground/70 text-sm">{stat.label}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -357,21 +359,21 @@ const About: React.FC<AboutProps> = ({
 
         {/* Tecnologías y Habilidades */}
         <div>
-          <h3 className="text-3xl font-bold text-primary mb-12 flex items-center gap-3">
+          <h3 className="text-3xl font-bold text-primary mb-16 flex items-center gap-3">
             <Code className="w-8 h-8 text-primary" />
             Tecnologías y Habilidades
           </h3>
 
-          <div className="space-y-10">
+          <div className="space-y-12">
             {technologies.map((tech, index) => (
               <div key={index} className="relative">
                 {/* Título de categoría */}
                 <div className="mb-6 flex items-center gap-4">
-                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-                  <h4 className="text-xl md:text-2xl font-bold text-foreground px-4">
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
+                  <h4 className="text-lg md:text-xl font-semibold text-muted-foreground/70 px-4 tracking-wide">
                     {tech.category}
                   </h4>
-                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
                 </div>
 
                 {/* Grid de tecnologías */}
@@ -379,7 +381,7 @@ const About: React.FC<AboutProps> = ({
                   {tech.items.map((item, itemIndex) => (
                     <div
                       key={itemIndex}
-                      className="group relative bg-card rounded-xl p-4 border border-border/50 hover:border-secondary/60 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20 text-center overflow-hidden"
+                      className="group relative bg-card/60 backdrop-blur-sm rounded-xl p-4 border border-white/[0.06] hover:border-primary/20 transition-all duration-500 text-center overflow-hidden"
                     >
                       {/* Logo de fondo */}
                       <div
@@ -404,9 +406,9 @@ const About: React.FC<AboutProps> = ({
                       <div className="absolute inset-0 bg-background/75 rounded-xl"></div>
 
                       {/* Efecto hover */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-secondary/0 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 rounded-xl bg-primary/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                      <span className="relative z-10 text-sm font-medium text-muted-foreground group-hover:text-secondary transition-colors duration-300 block">
+                      <span className="relative z-10 text-sm font-medium text-muted-foreground/70 group-hover:text-primary transition-colors duration-500 block">
                         {item}
                       </span>
                     </div>

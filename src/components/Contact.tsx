@@ -46,46 +46,46 @@ const Contact: React.FC<ContactProps> = ({
       name: 'Email',
       icon: Mail,
       href: `mailto:${email}`,
-      color: 'hover:bg-blue-500/20 hover:border-blue-500/50 hover:text-blue-400',
-      bgColor: 'bg-blue-500/10 border-blue-500/30'
+      label: email
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
       href: linkedin,
-      color: 'hover:bg-blue-600/20 hover:border-blue-600/50 hover:text-blue-400',
-      bgColor: 'bg-blue-600/10 border-blue-600/30'
+      label: 'Visitar perfil'
     },
     {
       name: 'GitHub',
       icon: Github,
       href: github,
-      color: 'hover:bg-gray-500/20 hover:border-gray-500/50 hover:text-gray-300',
-      bgColor: 'bg-gray-500/10 border-gray-500/30'
+      label: 'Visitar perfil'
     }
   ];
 
   return (
-    <div className="w-full min-h-screen py-20 px-8 md:px-16 lg:px-24">
-      <div className="max-w-6xl mx-auto">
+    <div className="w-full min-h-screen py-24 px-4 md:px-16 lg:px-24">
+      <div className="max-w-[1400px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-primary mb-4">
+        <div className="text-center mb-28">
+          <span className='text-xs font-semibold tracking-[0.3em] uppercase text-primary/50 mb-6 block'>
+            Hablemos
+          </span>
+          <h2 className="text-5xl md:text-7xl font-bold text-primary mb-8 tracking-tight">
             Contacto
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            ¿Tienes un proyecto en mente? Estoy aquí para ayudarte.
-          </p>
+          <div className='w-20 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent mx-auto rounded-full' />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Redes Sociales */}
           <div>
-            <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-              <MessageCircle className="w-6 h-6 text-primary" />
+            <h3 className="text-2xl font-bold text-foreground mb-3 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center shrink-0">
+                <MessageCircle className="w-5 h-5 text-primary" />
+              </div>
               Plataformas de contacto
             </h3>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground/70 mb-10 pl-[52px]">
               Encuéntrame en estas plataformas o envíame un mensaje directo.
             </p>
 
@@ -98,21 +98,24 @@ const Contact: React.FC<ContactProps> = ({
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 ${social.bgColor} ${social.color} backdrop-blur-sm`}
+                    className="group flex items-center gap-5 p-5 rounded-2xl bg-card/60 backdrop-blur-sm border border-white/[0.06] hover:border-primary/20 transition-all duration-500 relative overflow-hidden"
                   >
-                    <div className="p-3 rounded-lg bg-secondary/20 group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-6 h-6" />
+                    {/* Glow on hover */}
+                    <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    <div className="w-14 h-14 rounded-2xl bg-white/[0.07] border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/20 transition-colors duration-500 relative z-10">
+                      <Icon className="w-6 h-6 text-muted-foreground/60 group-hover:text-primary transition-colors duration-500" />
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 relative z-10">
                       <div className="font-semibold text-foreground group-hover:translate-x-1 transition-transform duration-300">
                         {social.name}
                       </div>
-                      <div className="text-sm text-gray-400">
-                        {social.name === 'Email' ? email : 'Visitar perfil'}
+                      <div className="text-sm text-muted-foreground/50">
+                        {social.label}
                       </div>
                     </div>
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Send className="w-5 h-5" />
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0 translate-x-2 relative z-10">
+                      <Send className="w-5 h-5 text-primary/60" />
                     </div>
                   </a>
                 );
@@ -122,93 +125,99 @@ const Contact: React.FC<ContactProps> = ({
 
           {/* Formulario de Contacto */}
           <div>
-            <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-              <Mail className="w-6 h-6 text-primary" />
+            <h3 className="text-2xl font-bold text-foreground mb-3 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center shrink-0">
+                <Mail className="w-5 h-5 text-primary" />
+              </div>
               Envíame un mensaje
             </h3>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground/70 mb-10 pl-[52px]">
               Completa el formulario y me pondré en contacto contigo lo antes posible.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-2">
-                  Nombre
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-300"
-                  placeholder="Tu nombre"
-                />
-              </div>
+            <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/[0.06] relative overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-48 h-48 bg-primary/[0.04] blur-3xl rounded-full pointer-events-none" />
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-300"
-                  placeholder="tu.email@ejemplo.com"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                <div>
+                  <label htmlFor="name" className="block text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground/50 mb-3">
+                    Nombre
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-5 py-3.5 bg-white/[0.04] border border-white/[0.06] rounded-xl text-foreground placeholder-muted-foreground/30 focus:outline-none focus:border-primary/30 focus:bg-white/[0.06] transition-all duration-500"
+                    placeholder="Tu nombre"
+                  />
+                </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-2">
-                  Mensaje
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-300 resize-none"
-                  placeholder="Cuéntame sobre tu proyecto..."
-                />
-              </div>
+                <div>
+                  <label htmlFor="email" className="block text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground/50 mb-3">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-5 py-3.5 bg-white/[0.04] border border-white/[0.06] rounded-xl text-foreground placeholder-muted-foreground/30 focus:outline-none focus:border-primary/30 focus:bg-white/[0.06] transition-all duration-500"
+                    placeholder="tu.email@ejemplo.com"
+                  />
+                </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full px-6 py-4 bg-secondary hover:bg-secondary/80 text-secondary-foreground font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-secondary/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Enviando...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Enviar Mensaje
-                  </>
-                )}
-              </button>
-            </form>
+                <div>
+                  <label htmlFor="message" className="block text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground/50 mb-3">
+                    Mensaje
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={6}
+                    className="w-full px-5 py-3.5 bg-white/[0.04] border border-white/[0.06] rounded-xl text-foreground placeholder-muted-foreground/30 focus:outline-none focus:border-primary/30 focus:bg-white/[0.06] transition-all duration-500 resize-none"
+                    placeholder="Cuéntame sobre tu proyecto..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full px-6 py-4 bg-primary text-primary-foreground font-semibold rounded-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2.5"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Enviar Mensaje
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
 
         {/* Información adicional */}
-        <div className="mt-16 pt-8 border-t border-gray-800">
+        <div className="mt-24 pt-8 border-t border-white/[0.04]">
           <div className="text-center">
-            <p className="text-muted-foreground mb-4">
+            <p className="text-muted-foreground/50 mb-4">
               También puedes contactarme directamente por email
             </p>
             <a
               href={`mailto:${email}`}
-              className="text-primary hover:text-primary/80 font-semibold text-lg transition-colors duration-300 inline-flex items-center gap-2"
+              className="text-primary/80 hover:text-primary font-semibold text-lg transition-colors duration-300 inline-flex items-center gap-2"
             >
               <Mail className="w-5 h-5" />
               {email}
@@ -221,4 +230,3 @@ const Contact: React.FC<ContactProps> = ({
 };
 
 export default Contact;
-

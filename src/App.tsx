@@ -100,10 +100,6 @@ function App() {
   return (
     <>
       <BeamsBackground className="bg-portfolio-gradient overflow-hidden">
-        <div className='w-full min-h-screen relative overflow-x-hidden selection:bg-secondary/30 transform-gpu translate-z-0'>
-          {/* Grain Overlay */}
-          <div className='grain-overlay' />
-
           {/* Navegación */}
           <div className='fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/20 overflow-hidden'>
             <div className='flex items-center justify-between px-6 py-4 relative'>
@@ -166,6 +162,10 @@ function App() {
             </div>
           </div>
 
+        <div className='w-full min-h-screen relative overflow-x-hidden selection:bg-secondary/30 transform-gpu translate-z-0'>
+          {/* Grain Overlay */}
+          <div className='grain-overlay' />
+
           {/* Hero Section */}
           <section className='w-full h-screen flex items-center justify-center relative overflow-hidden'>
             <div className='text-center relative z-10'>
@@ -188,6 +188,16 @@ function App() {
                   className='px-6 py-3 bg-transparent border-2 border-secondary hover:bg-secondary/20 text-foreground rounded-lg transition-all duration-300 transform hover:scale-105'
                 >
                   Ver Proyectos
+                </a>
+                <a
+                  href="#about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick("#about");
+                  }}
+                  className='px-6 py-3 bg-transparent border-2 border-secondary hover:bg-secondary/20 text-foreground rounded-lg transition-all duration-300 transform hover:scale-105'
+                >
+                  Sobre Mí
                 </a>
                 <a
                   href="#contact"
