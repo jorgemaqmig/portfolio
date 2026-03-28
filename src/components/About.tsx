@@ -10,7 +10,7 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({
   name = "Jorge Maqueda",
   title = "Desarrollador Full Stack",
-  description = "Apasionado por el desarrollo de software y la creación de soluciones innovadoras."
+  description = "Desarrollador Full Stack con formación en desarrollo web y multiplataforma. Especializado en crear aplicaciones modernas, escalables y de alto rendimiento utilizando las últimas tecnologías y mejores prácticas del sector."
 }) => {
   // Función para obtener la URL del logo de cada tecnología
   const getTechLogo = (techName: string): string => {
@@ -172,9 +172,7 @@ const About: React.FC<AboutProps> = ({
                 </div>
               </div>
               <p className="text-muted-foreground/80 leading-relaxed text-base md:text-lg">
-                Desarrollador Full Stack con formación en desarrollo web y multiplataforma.
-                Especializado en crear aplicaciones modernas, escalables y de alto rendimiento
-                utilizando las últimas tecnologías y mejores prácticas del sector.
+                {description}
               </p>
             </div>
           </div>
