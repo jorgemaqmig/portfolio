@@ -119,7 +119,7 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
 
 /* ─── Número de proyecto estilizado ─── */
 const ProjectNumber: React.FC<{ index: number }> = ({ index }) => (
-  <span className='text-[10rem] md:text-[14rem] font-black leading-none text-primary/[0.04] absolute -top-16 select-none pointer-events-none tracking-tighter'
+  <span className='text-[8rem] sm:text-[10rem] md:text-[14rem] font-black leading-none text-primary/[0.04] absolute -top-10 md:-top-16 select-none pointer-events-none tracking-tighter'
     style={{ fontVariantNumeric: 'tabular-nums' }}
   >
     {String(index + 1).padStart(2, '0')}

@@ -205,13 +205,13 @@ const About: React.FC<AboutProps> = ({
 
           <div className="relative">
             {/* Línea vertical con gradiente */}
-            <div className="absolute left-[32px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-secondary/50 to-transparent transform -translate-x-1/2"></div>
+            <div className="absolute left-[24px] md:left-[32px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-secondary/50 to-transparent transform -translate-x-1/2"></div>
 
             <div className="space-y-16">
               {experience.map((item, index) => (
-                <div key={item.id} className="relative pl-24 group/exp">
+                <div key={item.id} className="relative pl-16 md:pl-24 group/exp">
                   {/* Punto en la línea del tiempo */}
-                  <div className="absolute left-[32px] top-10 transform -translate-x-1/2 z-10">
+                  <div className="absolute left-[24px] md:left-[32px] top-10 transform -translate-x-1/2 z-10">
                     <div className={`w-4 h-4 rounded-full ${item.highlight
                       ? 'bg-secondary shadow-[0_0_12px_rgba(168,85,247,0.5)]'
                       : 'bg-muted-foreground/30'
@@ -219,7 +219,7 @@ const About: React.FC<AboutProps> = ({
                   </div>
 
                   {/* Conector horizontal */}
-                  <div className="absolute left-[40px] top-[44px] w-12 h-px bg-secondary/30" />
+                  <div className="absolute left-[32px] md:left-[40px] top-[44px] w-8 md:w-12 h-px bg-secondary/30" />
 
                   {/* Card de experiencia */}
                   <div className="relative bg-card/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/[0.06] hover:border-secondary/30 transition-all duration-500 overflow-hidden group-hover/exp:shadow-lg group-hover/exp:shadow-secondary/5">
@@ -287,13 +287,13 @@ const About: React.FC<AboutProps> = ({
 
           <div className="relative">
             {/* Línea vertical con gradiente */}
-            <div className="absolute left-[32px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent transform -translate-x-1/2"></div>
+            <div className="absolute left-[24px] md:left-[32px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent transform -translate-x-1/2"></div>
 
             <div className="space-y-16">
               {education.map((item) => (
-                <div key={item.id} className="relative pl-24 group/edu">
+                <div key={item.id} className="relative pl-16 md:pl-24 group/edu">
                   {/* Punto en la línea del tiempo */}
-                  <div className="absolute left-[32px] top-10 transform -translate-x-1/2 z-10">
+                  <div className="absolute left-[24px] md:left-[32px] top-10 transform -translate-x-1/2 z-10">
                     <div className={`w-4 h-4 rounded-full ${item.highlight
                       ? 'bg-primary shadow-[0_0_12px_rgba(59,130,246,0.5)]'
                       : 'bg-muted-foreground/30'
@@ -301,7 +301,7 @@ const About: React.FC<AboutProps> = ({
                   </div>
 
                   {/* Conector horizontal */}
-                  <div className="absolute left-[40px] top-[44px] w-12 h-px bg-primary/30" />
+                  <div className="absolute left-[32px] md:left-[40px] top-[44px] w-8 md:w-12 h-px bg-primary/30" />
 
                   {/* Card de formación */}
                   <div className="relative bg-card/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/[0.06] hover:border-primary/30 transition-all duration-500 overflow-hidden group-hover/edu:shadow-lg group-hover/edu:shadow-primary/5">
