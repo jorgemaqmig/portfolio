@@ -45,7 +45,6 @@ const exampleProjects = [
     title: "PokeZona",
     description: "Aplicación móvil centrada en el universo Pokémon, permitiendo la consulta de datos y gestión de información sobre los mismos.",
     technologies: ["Kotlin", "Android SDK", "Retrofit", "Jetpack Compose"],
-    link: "https://github.com/vGxbri/PokeZona",
     github: "https://github.com/vGxbri/PokeZona",
     images: [
       "/projects/pokezona.png",
@@ -60,7 +59,6 @@ const exampleProjects = [
     title: "Pixelhouse-Tycoon",
     description: "Videojuego 2D de gestión y construcción inspirado en el universo Minecraft. Los jugadores pueden construir libremente y generar monedas mediante sistemas de generadores automáticos.",
     technologies: ["Unity", "C#", "Game Design", "Economy Systems"],
-    link: "https://github.com/vGxbri/Pixelhouse-Tycoon",
     github: "https://github.com/vGxbri/Pixelhouse-Tycoon",
     images: [
       "/projects/pixelhouse.png",

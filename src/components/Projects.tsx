@@ -187,7 +187,7 @@ const ProjectCard: React.FC<{ project: Project; isReversed?: boolean; index: num
                 className='inline-flex items-center gap-2.5 px-7 py-3.5 bg-primary text-primary-foreground rounded-xl font-semibold text-sm hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-lg shadow-primary/25'
               >
                 <Github size={18} />
-                Ver Código
+                GitHub
               </a>
             )}
             {project.link && (
@@ -198,7 +198,7 @@ const ProjectCard: React.FC<{ project: Project; isReversed?: boolean; index: num
                 className='inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/[0.04] border border-white/10 text-foreground rounded-xl font-semibold text-sm hover:bg-white/[0.08] hover:border-primary/20 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 backdrop-blur-sm'
               >
                 <ExternalLink size={18} />
-                Demo en Vivo
+                Pruébalo
               </a>
             )}
           </div>

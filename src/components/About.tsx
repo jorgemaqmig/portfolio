@@ -70,16 +70,16 @@ const About: React.FC<AboutProps> = ({
   const education = [
     {
       id: 1,
-      title: "Bachillerato",
-      period: "2021 - 2023",
-      description: "Estudios de bachillerato completados con enfoque en ciencias y tecnología."
-    },
-    {
-      id: 2,
       title: "Doble Grado Superior",
       period: "2023 - 2026",
       description: "Desarrollo de Aplicaciones Web (DAW) y Desarrollo de Aplicaciones Multiplataforma (DAM)",
       highlight: true
+    },
+    {
+      id: 2,
+      title: "Bachillerato",
+      period: "2021 - 2023",
+      description: "Estudios de bachillerato completados con enfoque en ciencias y tecnología."
     }
   ];
 
@@ -120,25 +120,25 @@ const About: React.FC<AboutProps> = ({
     {
       category: "Backend",
       items: [
-        "Node.js", "Express", "Spring Boot", "Laravel", "ASP.NET", "RESTful APIs", "GraphQL"
+        "Node.js", "Express", "Spring Boot", "ASP.NET", "RESTful APIs"
       ]
     },
     {
       category: "Bases de Datos",
       items: [
-        "MySQL", "PostgreSQL", "MongoDB", "SQLite", "Firebase"
+        "MySQL", "PostgreSQL", "MongoDB", "SQLite", "Firebase", "Supabase"
       ]
     },
     {
       category: "Herramientas y Otros",
       items: [
-        "Git", "GitHub", "Docker", "AWS", "Linux", "Agile/Scrum", "Jest", "Cypress"
+        "Git", "GitHub", "Docker", "AWS", "Linux", "Scrum", "Salesforce"
       ]
     },
     {
       category: "Desarrollo Móvil",
       items: [
-        "React Native", "Flutter", "Android Studio", "Xcode", "Ionic"
+        "React Native", "Android Studio"
       ]
     }
   ];
