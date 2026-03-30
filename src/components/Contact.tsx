@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, Github, MessageCircle, Send, ArrowUp, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, Linkedin, Github, MessageCircle, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
 interface ContactProps {
   email?: string;
