@@ -159,7 +159,7 @@ const ProjectCard: React.FC<{ project: Project; isReversed?: boolean; index: num
           </div>
 
           {/* Descripción */}
-          <p className='text-lg text-muted-foreground/80 leading-[1.8] max-w-lg text-justify'>
+          <p className='text-lg text-muted-foreground/80 leading-[1.8] max-w-lg'>
             {project.description}
           </p>
 

@@ -171,7 +171,7 @@ const About: React.FC<AboutProps> = ({
                   <p className="text-primary/80 font-medium">{title}</p>
                 </div>
               </div>
-              <p className="text-muted-foreground/80 leading-relaxed text-base md:text-lg text-justify">
+              <p className="text-muted-foreground/80 leading-relaxed text-base md:text-lg">
                 {description}
               </p>
             </div>
@@ -267,7 +267,7 @@ const About: React.FC<AboutProps> = ({
                       </div>
 
                       {/* Descripción */}
-                      <p className="text-muted-foreground/80 leading-relaxed text-base md:text-lg max-w-3xl text-justify">
+                      <p className="text-muted-foreground/80 leading-relaxed text-base md:text-lg max-w-3xl">
                         {item.description}
                       </p>
                     </div>
@@ -323,7 +323,7 @@ const About: React.FC<AboutProps> = ({
                           <h4 className="text-2xl md:text-3xl font-bold text-foreground mb-1 leading-tight">
                             {item.title}
                           </h4>
-                          <p className="text-lg text-primary/80 font-medium mb-3 text-justify">
+                          <p className="text-lg text-primary/80 font-medium mb-3">
                             {item.description}
                           </p>
                           <div className="w-16 h-0.5 bg-gradient-to-r from-primary/50 to-transparent rounded-full" />
