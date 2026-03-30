@@ -144,7 +144,7 @@ const About: React.FC<AboutProps> = ({
   ];
 
   return (
-    <div className="w-full min-h-screen py-24 px-4 md:px-16 lg:px-24">
+    <div className="w-full py-24 px-4 md:px-16 lg:px-24">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
         <div className="text-center mb-28">

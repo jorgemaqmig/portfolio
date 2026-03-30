@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, Github, MessageCircle, Send } from 'lucide-react';
+import { Mail, Linkedin, Github, MessageCircle, Send, ArrowUp, CheckCircle2, AlertCircle } from 'lucide-react';
 
 interface ContactProps {
   email?: string;
@@ -18,6 +18,7 @@ const Contact: React.FC<ContactProps> = ({
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -30,15 +31,38 @@ const Contact: React.FC<ContactProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
 
-    // Aquí puedes agregar la lógica para enviar el formulario
-    // Por ejemplo, usando un servicio como EmailJS o tu propio backend
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "45dec65e-2576-4b06-a0c6-192ce2e64b44",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Mensaje de contacto de ${formData.name}`,
+        }),
+      });
 
-    setTimeout(() => {
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      setSubmitStatus('error');
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: '', email: '', message: '' });
-      alert('¡Mensaje enviado! Te contactaré pronto.');
-    }, 1000);
+    }
   };
 
   const socialLinks = [
@@ -63,7 +87,7 @@ const Contact: React.FC<ContactProps> = ({
   ];
 
   return (
-    <div className="w-full min-h-screen py-24 px-4 md:px-16 lg:px-24">
+    <div className="w-full py-24 px-4 md:px-16 lg:px-24">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
         <div className="text-center mb-28">
@@ -204,24 +228,23 @@ const Contact: React.FC<ContactProps> = ({
                     </>
                   )}
                 </button>
+
+                {/* Feedback de envío */}
+                {submitStatus === 'success' && (
+                  <div className="flex items-center gap-3 p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 animate-in fade-in slide-in-from-top-2 duration-500">
+                    <CheckCircle2 className="w-5 h-5 shrink-0" />
+                    <p className="text-sm font-medium">¡Mensaje enviado con éxito! Te responderé pronto.</p>
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 animate-in fade-in slide-in-from-top-2 duration-500">
+                    <AlertCircle className="w-5 h-5 shrink-0" />
+                    <p className="text-sm font-medium">Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>
+                  </div>
+                )}
               </form>
             </div>
-          </div>
-        </div>
-
-        {/* Información adicional */}
-        <div className="mt-24 pt-8 border-t border-white/[0.04]">
-          <div className="text-center">
-            <p className="text-muted-foreground/50 mb-4">
-              También puedes contactarme directamente por email
-            </p>
-            <a
-              href={`mailto:${email}`}
-              className="text-primary/80 hover:text-primary font-semibold text-lg transition-colors duration-300 inline-flex items-center gap-2"
-            >
-              <Mail className="w-5 h-5" />
-              {email}
-            </a>
           </div>
         </div>
       </div>

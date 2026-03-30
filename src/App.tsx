@@ -237,7 +237,7 @@ function App() {
           <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-8 opacity-50 relative z-10" />
 
           {/* Sección Contact */}
-          <section id="contact" className='relative scroll-mt-24 py-20 overflow-hidden contain-paint'>
+          <section id="contact" className='relative scroll-mt-24 py-20 overflow-hidden'>
             <Contact
               email="jorgemaqmig@gmail.com"
               linkedin="https://www.linkedin.com/in/jorge-maqueda-a14314399/"
