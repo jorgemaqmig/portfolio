@@ -129,7 +129,7 @@ const ProjectNumber: React.FC<{ index: number }> = ({ index }) => (
 const ProjectCard: React.FC<{ project: Project; isReversed?: boolean; index: number }> = ({ project, isReversed, index }) => {
   return (
     <div className={cn(
-      'flex flex-col md:flex-row items-center gap-10 md:gap-16 group/card',
+      'flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16 group/card',
       isReversed && 'md:flex-row-reverse'
     )}>
       {/* ── Imagen ── */}
