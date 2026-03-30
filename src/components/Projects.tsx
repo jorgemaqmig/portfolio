@@ -76,14 +76,14 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
               {/* Controles de navegación */}
               <button
                 onClick={prevImage}
-                className='absolute left-4 top-1/2 -translate-y-1/2 p-2.5 bg-black/30 backdrop-blur-xl rounded-full text-white/90 hover:bg-primary hover:text-primary-foreground transition-all duration-300 z-10 opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-90 shadow-lg'
+                className='absolute left-4 top-1/2 -translate-y-1/2 p-2.5 bg-black/30 backdrop-blur-xl rounded-full text-white/90 hover:bg-primary hover:text-primary-foreground transition-all duration-300 z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:scale-110 active:scale-90 shadow-lg'
                 aria-label="Imagen anterior"
               >
                 <ChevronLeft size={22} strokeWidth={2.5} />
               </button>
               <button
                 onClick={nextImage}
-                className='absolute right-4 top-1/2 -translate-y-1/2 p-2.5 bg-black/30 backdrop-blur-xl rounded-full text-white/90 hover:bg-primary hover:text-primary-foreground transition-all duration-300 z-10 opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-90 shadow-lg'
+                className='absolute right-4 top-1/2 -translate-y-1/2 p-2.5 bg-black/30 backdrop-blur-xl rounded-full text-white/90 hover:bg-primary hover:text-primary-foreground transition-all duration-300 z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:scale-110 active:scale-90 shadow-lg'
                 aria-label="Siguiente imagen"
               >
                 <ChevronRight size={22} strokeWidth={2.5} />
@@ -159,7 +159,7 @@ const ProjectCard: React.FC<{ project: Project; isReversed?: boolean; index: num
           </div>
 
           {/* Descripción */}
-          <p className='text-lg text-muted-foreground/80 leading-[1.8] max-w-lg'>
+          <p className='text-lg text-muted-foreground/80 leading-[1.8] max-w-lg text-justify'>
             {project.description}
           </p>
 
