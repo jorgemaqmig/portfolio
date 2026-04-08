@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import logo from './assets/logo3.png';
+import logo from './assets/logo4.png';
 
 import Projects from './components/Projects';
 import Contact from './components/Contact';
