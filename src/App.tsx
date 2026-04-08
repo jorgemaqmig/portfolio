@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import logo from './assets/logo.png';
+import logo from './assets/logo3.png';
 
 import Projects from './components/Projects';
 import Contact from './components/Contact';
@@ -98,67 +98,67 @@ function App() {
   return (
     <>
       <BeamsBackground className="bg-portfolio-gradient overflow-hidden">
-          {/* Navegación */}
-          <div className='fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/20'>
-            <div className='flex items-center justify-between px-6 py-4 relative'>
-              <img src={logo} alt="Mi logo" className='w-16 h-16 cursor-pointer hover:opacity-80 transition-opacity duration-300' onClick={() => handleNavClick('top')} />
+        {/* Navegación */}
+        <div className='fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/20'>
+          <div className='flex items-center justify-between px-6 py-4 relative'>
+            <img src={logo} alt="Mi logo" className='w-16 h-16 cursor-pointer hover:opacity-80 transition-opacity duration-300' onClick={() => handleNavClick('top')} />
 
-              {/* Botón Hamburguesa (visible cuando el menú está cerrado) */}
-              <div className={`transition-opacity duration-300 ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-                <button
-                  onClick={() => setIsMenuOpen(true)}
-                  className="p-2 text-primary hover:text-primary/80 transition-colors"
-                  aria-label="Abrir menú"
+            {/* Botón Hamburguesa (visible cuando el menú está cerrado) */}
+            <div className={`transition-opacity duration-300 ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+              <button
+                onClick={() => setIsMenuOpen(true)}
+                className="p-2 text-primary hover:text-primary/80 transition-colors"
+                aria-label="Abrir menú"
+              >
+                <Menu size={32} />
+              </button>
+            </div>
+
+            {/* Menú Horizontal Desplegable */}
+            <div className={`absolute top-0 right-0 h-full max-md:fixed max-md:h-screen max-md:w-[280px] max-md:flex-col max-md:items-start max-md:pt-24 max-md:pl-8 bg-background/95 backdrop-blur-md flex items-center pr-6 pl-10 gap-8 transition-transform duration-300 ease-in-out border-l border-border/20 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+              <div className="flex max-md:flex-col max-md:items-start items-center gap-6">
+                <a
+                  href="#top"
+                  onClick={(e) => { e.preventDefault(); handleNavClick('top'); }}
+                  className="text-lg max-md:text-2xl font-medium text-foreground hover:text-primary transition-colors"
                 >
-                  <Menu size={32} />
-                </button>
+                  Inicio
+                </a>
+                <a
+                  href="#projects"
+                  onClick={(e) => { e.preventDefault(); handleNavClick('#projects'); }}
+                  className="text-lg max-md:text-2xl font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Proyectos
+                </a>
+                <a
+                  href="#about"
+                  onClick={(e) => { e.preventDefault(); handleNavClick('#about'); }}
+                  className="text-lg max-md:text-2xl font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Sobre Mí
+                </a>
+                <a
+                  href="#contact"
+                  onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
+                  className="text-lg max-md:text-2xl font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Contactar
+                </a>
               </div>
 
-              {/* Menú Horizontal Desplegable */}
-              <div className={`absolute top-0 right-0 h-full max-md:fixed max-md:h-screen max-md:w-[280px] max-md:flex-col max-md:items-start max-md:pt-24 max-md:pl-8 bg-background/95 backdrop-blur-md flex items-center pr-6 pl-10 gap-8 transition-transform duration-300 ease-in-out border-l border-border/20 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-                <div className="flex max-md:flex-col max-md:items-start items-center gap-6">
-                  <a
-                    href="#top"
-                    onClick={(e) => { e.preventDefault(); handleNavClick('top'); }}
-                    className="text-lg max-md:text-2xl font-medium text-foreground hover:text-primary transition-colors"
-                  >
-                    Inicio
-                  </a>
-                  <a
-                    href="#projects"
-                    onClick={(e) => { e.preventDefault(); handleNavClick('#projects'); }}
-                    className="text-lg max-md:text-2xl font-medium text-foreground hover:text-primary transition-colors"
-                  >
-                    Proyectos
-                  </a>
-                  <a
-                    href="#about"
-                    onClick={(e) => { e.preventDefault(); handleNavClick('#about'); }}
-                    className="text-lg max-md:text-2xl font-medium text-foreground hover:text-primary transition-colors"
-                  >
-                    Sobre Mí
-                  </a>
-                  <a
-                    href="#contact"
-                    onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-                    className="text-lg max-md:text-2xl font-medium text-foreground hover:text-primary transition-colors"
-                  >
-                    Contactar
-                  </a>
-                </div>
+              <div className="w-px max-md:w-16 h-8 max-md:h-px bg-border/20 mx-2 max-md:mx-0 max-md:my-2"></div>
 
-                <div className="w-px max-md:w-16 h-8 max-md:h-px bg-border/20 mx-2 max-md:mx-0 max-md:my-2"></div>
-
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="p-2 text-primary hover:text-primary/80 transition-colors max-md:absolute max-md:top-5 max-md:right-6"
-                  aria-label="Cerrar menú"
-                >
-                  <X size={32} />
-                </button>
-              </div>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="p-2 text-primary hover:text-primary/80 transition-colors max-md:absolute max-md:top-5 max-md:right-6"
+                aria-label="Cerrar menú"
+              >
+                <X size={32} />
+              </button>
             </div>
           </div>
+        </div>
 
         <div className='w-full min-h-screen relative overflow-x-hidden selection:bg-secondary/30 transform-gpu translate-z-0'>
           {/* Grain Overlay */}
